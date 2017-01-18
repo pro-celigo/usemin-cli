@@ -1,5 +1,5 @@
 'use strict';
-var argv = require('yargs')
+/*var argv = require('yargs')
 	.usage('Usage: usemin [input.html] [--dest|-d dir] [--output|-o output.html] [options]')
 	.example('usemin src/index.html -d dist -o dist/index.html', '')
 	.example('usemin src/index.html -d dist > dist/index.html', '')
@@ -38,15 +38,22 @@ var argv = require('yargs')
 		}
 	})
 	.demand(1)
-	.argv;
+	.argv;*/
 
-var fs = require('fs');
+//var fs = require('fs');
 var getBlocks = require('./lib/getBlocks');
 var getConfig = require('./lib/getConfig');
 var processBlocks = require('./lib/processBlocks');
 var getHTML = require('./lib/getHTML');
 
-var filePath = argv._[0];
+module.exports = {
+	getConfig : getConfig,
+	getBlocks : getBlocks,
+	processBlocks :processBlocks,
+	getHTML : getHTML
+}
+
+/*var filePath = argv._[0];
 var content = fs.readFileSync(filePath).toString();
 var blocks = getBlocks(argv._[0], content, argv.removeLivereload);
 var config = getConfig(argv.c);
@@ -68,3 +75,4 @@ if (process) {
 else {
 	throw Error('Unexpected error.');
 }
+*/
